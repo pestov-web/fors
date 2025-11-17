@@ -1,0 +1,305 @@
+.home-hero {
+    position: relative;
+    color: var(--color-hero-text);
+    background-color: #ffffff;
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.home-hero::before {
+    content: '';
+    position: absolute;
+    background-color: var(--color-hero-bg);
+    left: 0;
+    top: -74px;
+    right: 0;
+    bottom: 0;
+    clip-path: polygon(
+        100% 0%,
+        100% 7%,
+        91% 20%,
+        81% 33%,
+        77% 38%,
+        73% 43%,
+        70% 46%,
+        67% 50%,
+        62% 54%,
+        56% 59%,
+        51% 63%,
+        46% 67%,
+        41% 71%,
+        35% 75%,
+        29% 78%,
+        23% 80%,
+        19% 81%,
+        14% 82%,
+        10% 82%,
+        7% 82%,
+        3% 82%,
+        0 81%,
+        0% 0%
+    );
+}
+
+.home-hero__container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    padding: 1.8rem 3.75rem 3rem;
+    align-items: center;
+    background-image: url('../../img/car.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 63%;
+    background-color: transparent;
+}
+
+.home-hero__content {
+    display: grid;
+    gap: 0.7rem;
+    max-width: min(560px, 100%);
+}
+
+.home-hero__title {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-transform: uppercase;
+    max-width: 34rem;
+}
+
+.home-hero__lead {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: 0%;
+    color: var(--color-text-secondary);
+    max-width: 39rem;
+}
+
+.home-hero__price-current {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--color-hero-text);
+}
+
+.home-hero__price-old {
+    font-weight: 500;
+    color: rgba(26, 26, 26, 0.6);
+    text-decoration: line-through;
+}
+
+.home-hero__offer {
+    position: relative;
+    display: grid;
+    margin-top: 2.1rem;
+    padding: 1.88rem;
+    gap: 1rem;
+    width: min(26.625rem, 100%);
+    justify-items: center;
+    background-color: var(--color-hero-card-bg);
+    border-radius: 20px;
+    box-shadow: var(--shadow-hero-card);
+}
+
+.home-hero__offer-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-hero-text);
+    text-align: center;
+}
+
+.home-hero__timer {
+    margin: 0;
+    padding: 0 0 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.6rem, 0.5rem + 0.6vw, 1rem);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.home-hero__timer-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.home-hero__timer-label {
+    margin: 0;
+    font-size: clamp(0.7rem, 0.65rem + 0.3vw, 0.85rem);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(26, 26, 26, 0.6);
+    text-align: center;
+}
+
+.home-hero__timer-value {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #ff383c;
+    line-height: 1;
+}
+
+.home-hero__timer-value time {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3ch;
+    color: inherit;
+    position: relative;
+}
+
+.home-hero__timer-item:not(:last-child) .home-hero__timer-value time::after {
+    content: ':';
+    position: absolute;
+    right: -1.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: clamp(0.7rem, 0.6rem + 0.4vw, 1rem);
+    margin-inline: clamp(0.25rem, 0.2rem + 0.4vw, 0.5rem);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ff383c;
+}
+
+.home-hero__badge {
+    position: absolute;
+    inset: clamp(-1.35rem, -1.9rem - 0.5vw, -1.75rem) clamp(-2rem, 0.3rem + 0.8vw, -2.7rem) auto auto;
+    display: grid;
+    place-items: center;
+    gap: 0;
+    inline-size: 5.3125rem;
+    block-size: 5.3125rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #ff383c;
+    color: #ffffff;
+    text-transform: none;
+    letter-spacing: 0.06em;
+    font-size: 0.75rem;
+    border: 0.13rem solid var(--yellow, rgba(242, 213, 2, 1));
+}
+
+.home-hero__badge-label {
+    font-size: 0.75rem;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-align: center;
+    display: block;
+    overflow-wrap: break-word;
+    margin: 0;
+}
+
+.home-hero__badge-value {
+    font-size: 2.0625rem;
+    font-weight: 700;
+    line-height: 0.2;
+    letter-spacing: normal;
+    margin: -0.3rem 0;
+}
+
+.home-hero__media {
+    justify-self: end;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.home-hero__car {
+    display: block;
+    width: 10rem;
+    height: auto;
+}
+
+@media (max-width: 1023px) {
+    .home-hero__inner {
+        justify-items: center;
+        text-align: center;
+    }
+
+    .home-hero__bg-img {
+        width: calc(100vw + 240px);
+        transform: translateX(clamp(-200px, -12vw, -100px));
+    }
+
+    .home-hero__content {
+        justify-items: center;
+        text-align: center;
+    }
+
+    .home-hero__lead {
+        color: rgba(26, 26, 26, 0.8);
+    }
+
+    .home-hero__offer {
+        justify-items: center;
+    }
+
+    .home-hero__badge {
+        inset: clamp(-2.35rem, -2.1rem - 0.4vw, -2.75rem) auto auto 50%;
+        transform: translateX(-50%);
+    }
+
+    .home-hero__media {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .home-hero__car {
+        width: min(100%, clamp(360px, 70vw, 640px));
+    }
+}
+
+@media (min-width: 992px) {
+    .home-hero__inner {
+        grid-template-columns: minmax(0, 0.56fr) minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 599px) {
+    .home-hero {
+        padding-top: calc(var(--header-h) + clamp(2.25rem, 1.9rem + 4vw, 3.25rem));
+        padding-bottom: clamp(2.25rem, 1.9rem + 4vw, 3.25rem);
+    }
+
+    .home-hero__offer {
+        padding: clamp(1.4rem, 1.2rem + 2vw, 1.8rem);
+        border-radius: 1.5rem;
+    }
+
+    .home-hero__timer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(0.75rem, 0.6rem + 1vw, 1.25rem);
+    }
+
+    .home-hero__timer-item:not(:last-child) .home-hero__timer-value time::after {
+        display: none;
+    }
+
+    .home-hero__badge {
+        position: static;
+        transform: none;
+        margin-top: -0.75rem;
+    }
+
+    .home-hero__bg-img {
+        width: calc(100vw + 120px);
+        transform: translateX(-80px);
+    }
+}

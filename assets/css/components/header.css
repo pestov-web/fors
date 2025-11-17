@@ -1,0 +1,93 @@
+/* Header */
+
+/* .site-header {
+  position: relative;
+  height: var(--header-h);
+  background: var(--color-bg);
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--yellow, #f2d502);
+}
+
+.site-header--home {
+  background: transparent;
+  border-bottom: 0;
+  color: var(--color-hero-text);
+  z-index: 2;
+}
+
+.site-header--home .primary-nav__link,
+.site-header--home .action-btn,
+.site-header--home .site-header__phone {
+  color: var(--color-hero-text);
+}
+
+.site-header--home .primary-nav__link:focus-visible,
+.site-header--home .action-btn:focus-visible,
+.site-header--home .site-header__phone:focus-visible {
+  outline-color: currentColor;
+}
+
+.site-header--inner {
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-accent);
+  color: var(--color-text);
+}
+
+.site-header--inner .site-header__logo img {
+  height: 32px;
+}
+
+.site-header--inner .action-btn,
+.site-header--inner .site-header__phone,
+.site-header--inner .primary-nav__link {
+  color: var(--color-text);
+}
+
+.action-btn--theme-light {
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-pill);
+  padding: 2px;
+  background-color: rgba(242, 213, 2, 0.1);
+}
+
+.site-header--inner .mobile-menu {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding-block: 1.5rem;
+}
+
+.site-header--inner .mobile-menu__nav a {
+  color: var(--color-text);
+}
+
+.site-header--inner .mobile-menu__phone {
+  color: var(--color-text);
+}
+
+.site-header__inner {
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.site-header__logo img { display: block; height: 28px; width: auto; } */
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: var(--header-h);
+    z-index: 2;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 90rem;
+    padding: 0 60px;
+    border-bottom: 1px solid var(--yellow, #f2d502);
+}

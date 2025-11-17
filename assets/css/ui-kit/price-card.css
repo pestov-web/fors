@@ -1,0 +1,73 @@
+.price-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 26.69rem;
+    width: 26.69rem;
+    height: 37.81rem;
+    border-radius: var(--radius-pill);
+    /* shadow */
+    box-shadow: 6rem 6rem 20rem 3rem rgba(0, 0, 0, 0.2);
+    background: var(--white, rgba(255, 255, 255, 1));
+    padding: 1.9rem;
+}
+
+.price-card__header {
+    display: grid;
+    gap: 1.9rem;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+.price-card__category {
+    border-radius: var(--radius-pill);
+    background-color: var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.25rem;
+    height: 6.25rem;
+    font-size: 5rem;
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+}
+.price-card__title {
+    font-size: 1.56rem;
+    font-weight: 400;
+    line-height: 120%;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.price-card__description {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 120%;
+    text-align: left;
+    min-height: 1.8rem;
+}
+
+.price-card__info {
+    display: flex;
+    gap: 2.9rem;
+}
+
+.price-card__info-title {
+    font-weight: 300;
+    text-align: left;
+    margin: 0;
+}
+
+.price-card__info-value {
+    font-weight: 400;
+    text-align: left;
+    margin: 0;
+}
+
+.price-card__price {
+    font-size: 3.75rem;
+    font-weight: 500;
+    line-height: 4.5rem;
+    text-align: left;
+}

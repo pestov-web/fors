@@ -1,0 +1,6 @@
+*.png
+*.jpeg
+*.jpg
+/design
+/assets/img
+.DS_Store

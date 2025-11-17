@@ -1,0 +1,286 @@
+/* Categories & prices */
+.categories {
+  --categories-gap: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  --categories-per-view: 1;
+  display: grid;
+  gap: clamp(2.5rem, 2rem + 1vw, 3.5rem);
+  text-align: center;
+  color: var(--color-text);
+}
+
+.categories__head {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.categories__title {
+  margin: 0;
+  font-size: clamp(2.5rem, 2rem + 1vw, 3rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.categories__subtitle {
+  margin: 0;
+  font-size: clamp(1rem, 0.9rem + 0.2vw, 1.125rem);
+  color: rgba(26, 26, 26, 0.75);
+}
+
+.theme-dark .categories__subtitle {
+  color: rgba(245, 245, 245, 0.75);
+}
+
+.categories__slider {
+  display: grid;
+  gap: clamp(1.75rem, 1.4rem + 1vw, 2.5rem);
+}
+
+.categories__viewport {
+  overflow: hidden;
+}
+
+.categories__list {
+  display: flex;
+  gap: var(--categories-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.category-card {
+  background: #ffffff;
+  border-radius: 1.75rem;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.1);
+  padding: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+  display: grid;
+  gap: 1.5rem;
+  text-align: left;
+  position: relative;
+  flex: 0 0 calc((100% - var(--categories-gap) * (var(--categories-per-view) - 1)) / var(--categories-per-view));
+}
+
+.theme-dark .category-card {
+  background: var(--color-surface);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.category-card__header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: clamp(1rem, 0.8rem + 0.5vw, 1.5rem);
+}
+
+.category-card__badge {
+  width: clamp(4.5rem, 3.5rem + 3vw, 6.25rem);
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background: var(--color-footer-accent);
+  display: inline-grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: clamp(3.5rem, 3rem + 2vw, 5.5rem);
+  color: #1a1a1a;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.category-card__title {
+  margin: 0;
+  font-size: clamp(1.35rem, 1.2rem + 0.5vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.category-card__description {
+  margin: 0;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.85);
+}
+
+.theme-dark .category-card__description {
+  color: var(--color-text-secondary);
+}
+
+.category-card__meta {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.category-card__meta-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+}
+
+.category-card__meta-item dt {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.theme-dark .category-card__meta-item dt {
+  color: var(--color-text-subtle);
+}
+
+.category-card__meta-item dd {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.category-card__price {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+  font-weight: 600;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.category-card__price-prefix {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.category-card__cta {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(0.8rem, 0.7rem + 0.3vw, 1rem) clamp(2.2rem, 1.8rem + 0.8vw, 3rem);
+  border-radius: var(--radius-action);
+  border: none;
+  background-color: var(--color-footer-accent);
+  background-image: url("../bg/button.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card__cta:hover,
+.category-card__cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+.category-card__cta:focus-visible {
+  outline: 2px solid rgba(26, 26, 26, 0.9);
+  outline-offset: 3px;
+}
+
+.theme-dark .category-card__cta:focus-visible {
+  outline-color: rgba(255, 255, 255, 0.85);
+}
+
+.categories__footer {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(26, 26, 26, 0.75);
+  position: relative;
+}
+
+.theme-dark .categories__footer {
+  color: rgba(245, 245, 245, 0.7);
+}
+
+.categories__progress {
+  position: relative;
+  height: 4px;
+  background: rgba(242, 213, 2, 0.25);
+  border-radius: 999px;
+}
+
+.theme-dark .categories__progress {
+  background: rgba(242, 213, 2, 0.18);
+}
+
+.categories__progress-line {
+  display: block;
+  height: 100%;
+  background: var(--color-footer-accent);
+  border-radius: inherit;
+  width: 0;
+  transition: width 0.45s ease;
+}
+
+.categories__pager {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.categories__controls {
+  display: inline-flex;
+  gap: 0.75rem;
+}
+
+.categories__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(26, 26, 26, 0.2);
+  background: #ffffff;
+  color: rgba(26, 26, 26, 0.7);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-dark .categories__arrow {
+  background: var(--color-surface);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(245, 245, 245, 0.7);
+}
+
+.categories__arrow:hover,
+.categories__arrow:focus-visible {
+  color: var(--color-text);
+  border-color: var(--color-footer-accent);
+  transform: translateY(-2px);
+}
+
+.theme-dark .categories__arrow:hover,
+.theme-dark .categories__arrow:focus-visible {
+  color: var(--color-text);
+  border-color: var(--color-footer-accent);
+}
+
+.categories__arrow:focus-visible {
+  outline: 2px solid var(--color-footer-accent);
+  outline-offset: 2px;
+}
+
+.categories__arrow[disabled] {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+
+.categories--single .categories__controls {
+  visibility: hidden;
+}
+
+.categories--single .categories__progress-line {
+  width: 100%;
+}
+

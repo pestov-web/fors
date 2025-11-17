@@ -1,0 +1,148 @@
+/* Base, variables, utilities */
+:root {
+    /* Colors */
+    --color-bg: #ffffff;
+    --color-text: #1a1a1a;
+    --color-accent: #f2d502;
+    --color-footer-bg: #3c3c3c;
+    --color-footer-text: #ffffff;
+    --color-footer-accent: #f2d502;
+    --color-error: #f24b4b;
+    --yellow: #f2d502;
+    --color-pill-bg: #fffbd2;
+    --color-pill-border: #f2d502;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f7f7f7;
+    --color-surface-elevated: #ffffff;
+    --color-border: rgba(26, 26, 26, 0.08);
+    --color-text-muted: rgba(26, 26, 26, 0.82);
+    --color-text-secondary: rgba(26, 26, 26, 0.72);
+    --color-text-subtle: rgba(26, 26, 26, 0.6);
+    --color-text-faint: rgba(26, 26, 26, 0.45);
+    --shadow-elevated: 0 22px 48px rgba(0, 0, 0, 0.08);
+    --black: #1a1a1a;
+    --color-card-contrast: #3c3c3c;
+    --color-card-contrast-text: #ffffff;
+    --color-card-accent-text: #1a1a1a;
+
+    /* Border radius */
+    --radius-pill: 17px;
+    --radius-action: 14px;
+
+    /* Layout */
+    --container-max: 1440px;
+    --gap-nav: 30px;
+    --gap-actions: 24px;
+    --header-h: 74px;
+
+    /* Typography */
+    --font: 'Geologica', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+    /* Hero section */
+    --color-hero-bg: #f2d502;
+    --color-hero-text: #1a1a1a;
+    --color-hero-cta: #f2404f;
+    --color-hero-cta-accent: #ff6670;
+    --color-hero-card-bg: #ffffff;
+    --shadow-hero-card: 0 24px 48px rgba(17, 17, 17, 0.16);
+
+    /* Buttons */
+    --btn-primary-bg: #f2404f;
+    --btn-primary-hover: #ff6670;
+    --btn-secondary-bg: #f2d502;
+    --btn-secondary-hover: #ffd700;
+    --btn-padding-y: 1rem;
+    --btn-padding-x: 2.5rem;
+    --btn-font-size: 1.125rem;
+    --btn-border-radius: var(--radius-action);
+    --btn-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    color: var(--color-text);
+    background-color: rgba(255, 255, 255, 1);
+    font: 400 16px/1.4 var(--font);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body.is-menu-open {
+    overflow: hidden;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.u-container {
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: 20px;
+}
+
+.u-visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    overflow: hidden;
+}
+.u-text-center {
+    text-align: center;
+}
+
+.page-section {
+    padding-block: clamp(1.5rem, 1.25rem + 1vw, 2.5rem);
+}
+
+.page-section--light {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+}
+
+.section-title {
+    margin: 0 0 clamp(1.5rem, 1.1rem + 1vw, 2.25rem);
+    font-size: clamp(2rem, 1.2rem + 3vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.section-title--center {
+    text-align: center;
+}
+
+/* DARK THEME */
+.theme-dark {
+    --color-bg: #101010;
+    --color-text: #f5f5f5;
+    --color-surface: #181818;
+    --color-surface-alt: #141414;
+    --color-surface-elevated: #202020;
+    --color-border: rgba(255, 255, 255, 0.16);
+    --color-text-muted: rgba(245, 245, 245, 0.9);
+    --color-text-secondary: rgba(245, 245, 245, 0.72);
+    --color-text-subtle: rgba(245, 245, 245, 0.55);
+    --color-text-faint: rgba(245, 245, 245, 0.4);
+    --shadow-elevated: 0 24px 60px rgba(0, 0, 0, 0.65);
+    --black: #f5f5f5;
+    --color-footer-bg: #121212;
+    --color-footer-text: #f5f5f5;
+    --color-card-contrast: #252525;
+    --color-card-contrast-text: #f5f5f5;
+}

@@ -1,4 +1,4 @@
-<?php ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -10,15 +10,12 @@
   <link rel="stylesheet" href="assets/css/media.css">
 </head>
 <body>
-  <?php include __DIR__ . '/includes/header-inner.php'; ?>
+  <?php include __DIR__ . "/includes/header-inner.php"; ?>
 
   <main id="main" tabindex="-1">
     <?php
-      $breadcrumbItems = [
-        ['title' => 'Главная', 'url' => '/'],
-        ['title' => 'Ускоренные курсы вождения'],
-      ];
-      include __DIR__ . '/includes/breadcrumbs.php';
+    $breadcrumbItems = [["title" => "Главная", "url" => "/"], ["title" => "Ускоренные курсы вождения"]];
+    include __DIR__ . "/includes/breadcrumbs.php";
     ?>
 
     <section class="page-section page-section--light fast-hero" aria-labelledby="fast-hero-title">
@@ -88,7 +85,7 @@
           <h2 class="fast-section-heading__title" id="fast-steps-title">Этапы получения водительского удостоверения</h2>
           <p class="fast-section-heading__subtitle">Подготовили ускоренный маршрут — от первого звонка до экзаменов в ГИБДД.</p>
         </div>
-        <?php include __DIR__ . '/includes/steps.php'; ?>
+        <?php include __DIR__ . "/includes/steps.php"; ?>
       </div>
     </section>
 
@@ -251,16 +248,16 @@
     </section>
 
     <section class="page-section" aria-labelledby="consult-title">
-      <?php include __DIR__ . '/includes/form_consult.php'; ?>
+      <?php include __DIR__ . "/includes/form_consult.php"; ?>
     </section>
 
     <section class="page-section page-section--light" aria-labelledby="categories-title">
       <div class="u-container">
-        <?php include __DIR__ . '/includes/categories_and_prices.php'; ?>
+        <?php include __DIR__ . "/includes/categories_and_prices.php"; ?>
       </div>
     </section>
   </main>
-  <?php include __DIR__ . '/includes/footer.php'; ?>
+  <?php include __DIR__ . "/includes/footer.php"; ?>
 
   <script defer src="assets/js/app.js"></script>
 </body>

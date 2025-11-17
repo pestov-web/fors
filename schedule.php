@@ -1,4 +1,4 @@
-<?php ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -10,15 +10,12 @@
   <link rel="stylesheet" href="assets/css/media.css">
 </head>
 <body>
-  <?php include __DIR__ . '/includes/header-inner.php'; ?>
+  <?php include __DIR__ . "/includes/header-inner.php"; ?>
 
   <main id="main" tabindex="-1">
     <?php
-      $breadcrumbItems = [
-        ['title' => 'Главная', 'url' => '/'],
-        ['title' => 'Расписание занятий'],
-      ];
-      include __DIR__ . '/includes/breadcrumbs.php';
+    $breadcrumbItems = [["title" => "Главная", "url" => "/"], ["title" => "Расписание занятий"]];
+    include __DIR__ . "/includes/breadcrumbs.php";
     ?>
 
     <section class="page-section schedule" aria-labelledby="schedule-title">
@@ -30,7 +27,7 @@
         <div class="schedule__layout">
           <aside class="schedule__sidebar" aria-labelledby="schedule-sidebar-title">
             <h2 class="schedule__sidebar-title u-visually-hidden" id="schedule-sidebar-title">Районы проведения занятий</h2>
-            <?php include __DIR__ . '/includes/schedule-menu.php'; ?>
+            <?php include __DIR__ . "/includes/schedule-menu.php"; ?>
           </aside>
 
           <div class="schedule__content" id="schedule-main">
@@ -141,7 +138,7 @@
     </section>
   </main>
 
-  <?php include __DIR__ . '/includes/footer.php'; ?>
+  <?php include __DIR__ . "/includes/footer.php"; ?>
 
   <script defer src="assets/js/app.js"></script>
 </body>

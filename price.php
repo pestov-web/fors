@@ -1,26 +1,22 @@
 <?php
-  $pageTitle = 'Автошкола Форсаж — Цены';
-?>
+$pageTitle = "Автошкола Форсаж — Цены"; ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8'); ?></title>
+  <title><?php echo htmlspecialchars($pageTitle, ENT_QUOTES, "UTF-8"); ?></title>
   <link rel="preload" as="style" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/media.css">
 </head>
 <body>
-  <?php include __DIR__ . '/includes/header-inner.php'; ?>
+  <?php include __DIR__ . "/includes/header-inner.php"; ?>
 
   <main id="main" tabindex="-1">
     <?php
-      $breadcrumbItems = [
-        ['title' => 'Главная', 'url' => '/'],
-        ['title' => 'Цены'],
-      ];
-      include __DIR__ . '/includes/breadcrumbs.php';
+    $breadcrumbItems = [["title" => "Главная", "url" => "/"], ["title" => "Цены"]];
+    include __DIR__ . "/includes/breadcrumbs.php";
     ?>
 
     <section class="page-section price-intro" aria-labelledby="price-title">
@@ -46,26 +42,26 @@
       </div>
     </section>
 
-    <?php include __DIR__ . '/includes/prices-table.php'; ?>
+    <?php include __DIR__ . "/includes/prices-table.php"; ?>
 
-    <?php include __DIR__ . '/includes/price-includes.php'; ?>
+    <?php include __DIR__ . "/includes/price-includes.php"; ?>
 
     <section class="page-section price-consult" aria-labelledby="consult-title">
-      <?php include __DIR__ . '/includes/form_consult.php'; ?>
+      <?php include __DIR__ . "/includes/form_consult.php"; ?>
     </section>
 
-    <?php include __DIR__ . '/includes/price-directions.php'; ?>
+    <?php include __DIR__ . "/includes/price-directions.php"; ?>
 
-    <?php include __DIR__ . '/includes/price-advantages.php'; ?>
+    <?php include __DIR__ . "/includes/price-advantages.php"; ?>
 
     <section class="page-section" aria-labelledby="categories-title">
       <div class="u-container">
-        <?php include __DIR__ . '/includes/categories_and_prices.php'; ?>
+        <?php include __DIR__ . "/includes/categories_and_prices.php"; ?>
       </div>
     </section>
   </main>
 
-  <?php include __DIR__ . '/includes/footer.php'; ?>
+  <?php include __DIR__ . "/includes/footer.php"; ?>
 
   <script defer src="assets/js/app.js"></script>
 </body>

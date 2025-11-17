@@ -1,10 +1,7 @@
 <?php
 // Хлебные крошки, подготовлены под подключение компонентов Битрикс
 
-$breadcrumbItems = $breadcrumbItems ?? [
-  ['title' => 'Главная', 'url' => '/'],
-  ['title' => 'Страница'],
-];
+$breadcrumbItems = $breadcrumbItems ?? [["title" => "Главная", "url" => "/"], ["title" => "Страница"]];
 
 $lastIndex = count($breadcrumbItems) - 1;
 ?>
@@ -14,13 +11,15 @@ $lastIndex = count($breadcrumbItems) - 1;
     <ol class="breadcrumbs__list">
       <?php foreach ($breadcrumbItems as $index => $item): ?>
         <?php
-          $title = htmlspecialchars($item['title'] ?? '', ENT_QUOTES, 'UTF-8');
-          $url = $item['url'] ?? null;
-          $isLast = $index === $lastIndex;
+        $title = htmlspecialchars($item["title"] ?? "", ENT_QUOTES, "UTF-8");
+        $url = $item["url"] ?? null;
+        $isLast = $index === $lastIndex;
         ?>
-        <li class="breadcrumbs__item"<?php if ($isLast) { echo ' aria-current="page"'; } ?>>
+        <li class="breadcrumbs__item"<?php if ($isLast) {
+          echo ' aria-current="page"';
+        } ?>>
           <?php if (!$isLast && $url): ?>
-            <a class="breadcrumbs__link" href="<?php echo htmlspecialchars($url, ENT_QUOTES, 'UTF-8'); ?>">
+            <a class="breadcrumbs__link" href="<?php echo htmlspecialchars($url, ENT_QUOTES, "UTF-8"); ?>">
               <?php echo $title; ?>
             </a>
             <span class="breadcrumbs__separator" aria-hidden="true"></span>

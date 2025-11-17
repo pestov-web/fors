@@ -1,6 +1,38 @@
-*.png
-*.jpeg
-*.jpg
-/design
-/assets/img
+
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# Резервные копии
+*.backup
+*.bak
+*.tmp
+*.log
+
+# Сборка и кеш
+dist/
+build/
+.cache/
+
+# PHP
+vendor/
+composer.lock
+
+# Временные файлы
+*.temp
+.env
+.env.local

@@ -1,0 +1,25 @@
+# Зависимости
+node_modules/
+vendor/
+
+# Резервные копии
+*.backup
+*.bak
+
+# Сборка
+dist/
+build/
+
+# Git
+.git/
+.github/
+
+# Дизайн
+design/
+
+# Временные файлы
+*.tmp
+*.log
+
+# Специфичные исключения
+assets/css/styles.css.backup

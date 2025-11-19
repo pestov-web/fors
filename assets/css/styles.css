@@ -10,6 +10,8 @@
 /* UI-Kit */
 @import "ui-kit/buttons.css";
 @import "ui-kit/price-card.css";
+@import "ui-kit/fast-banner.css";
+@import "ui-kit/social-banner.css";
 
 /* Components */
 @import "./components/header.css";
@@ -19,6 +21,11 @@
 @import "./components/form-consult.css";
 @import "./components/categories.css";
 @import "./components/breadcrumbs.css";
+@import "./components/consult-form.css";
+@import "./components/news-card.css";
+@import "./components/news-and-discount.css";
+@import "./components/office-map.css";
+@import "./components/faq-accordion.css";
 
 /* Страницы */
 @import "./pages/fast-courses.css";

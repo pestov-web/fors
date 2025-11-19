@@ -1,0 +1,21 @@
+.news-and-discount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.news-and-discount__title {
+  color: var(--black, rgba(26, 26, 26, 1));
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+.news-and-discount__list {
+  box-sizing: border-box;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.2rem;
+}

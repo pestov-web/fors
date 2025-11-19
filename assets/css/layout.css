@@ -1,5 +1,6 @@
-
-.primary-nav { justify-self: center; }
+.primary-nav {
+  justify-self: center;
+}
 .primary-nav__list {
   display: flex;
   gap: var(--gap-nav);
@@ -34,16 +35,24 @@
   gap: var(--gap-actions);
 }
 
-.action-btn { /* иконки-кнопки */
+.action-btn {
+  /* иконки-кнопки */
   -webkit-appearance: none;
   appearance: none;
-  border: 0; background: none; padding: 0;
-  inline-size: 20px; block-size: 20px;
-  display: inline-grid; place-items: center;
+  border: 0;
+  background: none;
+  padding: 0;
+  inline-size: 20px;
+  block-size: 20px;
+  display: inline-grid;
+  place-items: center;
   cursor: pointer;
   color: var(--color-text);
 }
-.action-btn svg { display: block; fill: currentColor; }
+.action-btn svg {
+  display: block;
+  fill: currentColor;
+}
 
 .site-header__phone {
   color: var(--color-text);
@@ -53,19 +62,45 @@
 }
 
 /* Переключатель темы как пилюля */
-.action-btn--theme { inline-size: 64px; block-size: 34px; padding: 0; border: 0; background: none; box-sizing: border-box; }
-.action-btn--theme img, .action-btn--theme svg { display: block; width: 100%; height: 100%; }
+.action-btn--theme {
+  inline-size: 64px;
+  block-size: 34px;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-sizing: border-box;
+}
+.action-btn--theme img,
+.action-btn--theme svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
 /* Бургер */
-.burger { inline-size: 26px; block-size: 26px; padding: 0; border: 0; background: none; }
-.burger img, .burger svg { width: 26px; height: 26px; display: block; }
+.burger {
+  inline-size: 26px;
+  block-size: 26px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.burger img,
+.burger svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
 
 /* Footer */
 .site-footer {
+  box-sizing: border-box;
   background-color: var(--color-footer-bg);
   color: var(--color-footer-text);
-  padding-block: clamp(2.5rem, 1.5rem + 2vw, 3.75rem);
-  margin-top: auto;
+  padding: clamp(2.5rem, 1.5rem + 2vw, 3.75rem);
+  margin: auto auto;
+  width: 100%;
+  max-width: var(--container-max);
 }
 
 .site-footer__inner {

@@ -365,9 +365,7 @@
       pointerActive = false;
     });
 
-    const resizeObserver = window.ResizeObserver
-      ? new ResizeObserver(() => refreshMetrics({ animate: false }))
-      : null;
+    const resizeObserver = window.ResizeObserver ? new ResizeObserver(() => refreshMetrics({ animate: false })) : null;
     if (resizeObserver) resizeObserver.observe(viewport);
     window.addEventListener('resize', () => refreshMetrics({ animate: false }));
 
@@ -456,4 +454,43 @@
       }
     });
   }
+})();
+
+// FAQ Accordion
+(function () {
+  document.addEventListener('DOMContentLoaded', () => {
+    const accordionItems = document.querySelectorAll('.faq-accordion__item');
+
+    accordionItems.forEach((item) => {
+      const button = item.querySelector('.faq-accordion__question');
+      const answers = item.querySelector('.faq-accordion__answers');
+
+      if (!button || !answers) return;
+
+      button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        // Toggle state
+        button.setAttribute('aria-expanded', String(!isExpanded));
+        item.setAttribute('data-expanded', String(!isExpanded));
+
+        // Set max-height for smooth animation
+        if (!isExpanded) {
+          answers.style.maxHeight = answers.scrollHeight + 20 + 'px';
+          answers.style.paddingBottom = '20px';
+        } else {
+          answers.style.maxHeight = '0';
+          answers.style.paddingBottom = '0';
+        }
+      });
+
+      // Initialize first item as open (optional)
+      if (item === accordionItems[0]) {
+        button.setAttribute('aria-expanded', 'true');
+        item.setAttribute('data-expanded', 'true');
+        answers.style.maxHeight = answers.scrollHeight + 20 + 'px';
+        answers.style.paddingBottom = '20px';
+      }
+    });
+  });
 })();

@@ -63,9 +63,28 @@
           </div>
         </div>
       </section>
-      <!-- Здесь основной контент первой секции (герой), потом остальные блоки -->
+      <section class="page-section">
+        <div class="social-banner">
+          <h5 class="social-banner__title">Не хочешь говорить по телефону? Напиши онлайн!</h5>
+          <div class="social-banner__buttons">
+            <a href="#" class="btn btn--telegram">
+              <span class="btn__icon" aria-hidden="true"></span>
+              Связаться в TG
+            </a>
+            <a href="#" class="btn btn--whatsapp">
+              <span class="btn__icon" aria-hidden="true"></span>
+              Связаться в WA
+            </a>
+            <a href="#" class="btn btn--vk">
+              <span class="btn__icon" aria-hidden="true"></span>
+              Связаться в VK
+            </a>
+          </div>
+        </div>
+      </section>
       <section class="page-section" aria-labelledby="categories-title">
         <div class="u-container"><?php include __DIR__ . "/includes/categories_and_prices.php"; ?></div>
+        <?php include __DIR__ . "/includes/office-map.php"; ?>
       </section>
 
       <section class="page-section page-section--light" aria-labelledby="steps-title">
@@ -73,11 +92,11 @@
           <h2 class="section-title section-title--center" id="steps-title">Этапы обучения</h2>
           <?php include __DIR__ . "/includes/steps.php"; ?>
         </div>
+        <?php include __DIR__ . "/includes/fast-banner.php"; ?>
       </section>
-
-      <section class="page-section" aria-labelledby="consult-title">
-        <?php include __DIR__ . "/includes/form_consult.php"; ?>
-      </section>
+      <?php include __DIR__ . "/includes/faq-accordion.php"; ?>
+      <?php include __DIR__ . "/includes/news_and_discount.php"; ?>
+      <?php include __DIR__ . "/includes/form_consult.php"; ?>
     </main>
     <?php include __DIR__ . "/includes/footer.php"; ?>
 

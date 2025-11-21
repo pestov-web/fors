@@ -11,15 +11,8 @@
     const toggleBtn = document.querySelector('[data-action="toggle-theme"]');
     if (toggleBtn) toggleBtn.setAttribute('aria-checked', String(isDark));
 
-    // swap icons
-    const themeImg = document.querySelector('.action-btn--theme img');
-    if (themeImg) {
-      themeImg.src = isDark ? 'assets/icons/color_theme_dark.svg' : 'assets/icons/color_theme.svg';
-    }
-    const burgerImg = document.querySelector('.burger img');
-    if (burgerImg) {
-      burgerImg.src = isDark ? 'assets/icons/burger_dark.svg' : 'assets/icons/burger.svg';
-    }
+    // Toggle switch теперь работает через CSS и aria-checked - смена состояния автоматическая
+
     document.querySelectorAll('.js-site-logo').forEach((logo) => {
       const darkSrc = logo.getAttribute('data-logo-dark');
       const lightSrc = logo.getAttribute('data-logo-light');

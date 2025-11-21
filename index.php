@@ -64,25 +64,119 @@
           </div>
         </div>
       </section>
-      <section class="page-section">
+      <section class="page-section school" aria-labelledby="school-title">
+        <h2 class="school__title" id="school-title">Автошкола Форсаж</h2>
+        <div class="school__text-container">
+          <p class="school__text">
+            Автошкола «Форсаж» в Воронеже проводит автокурсы, после обучения на которых вы сможете получить водительские
+            права. Более 20 лет занимаемся подготовкой будущих водителей. У нас возможно обучиться на любую категорию,
+            пройти переподготовку на другой вид транспортного средства, а также курсы экстремального вождения, чтобы
+            улучшить опыт и увереннее чувствовать себя за рулём.
+          </p>
+          <p class="school__text">
+            Автошкола «Форсаж» в Воронеже проводит автокурсы, после обучения на которых вы сможете получить водительские
+            права. Более 20 лет занимаемся подготовкой будущих водителей. У нас возможно обучиться на любую категорию,
+            пройти переподготовку на другой вид транспортного средства, а также курсы экстремального вождения, чтобы
+            улучшить опыт и увереннее чувствовать себя за рулём.
+          </p>
+        </div>
+
+        <ul class="school__cards-list">
+          <li class="school__card school__card--image">
+            <figure class="school__card-figure">
+              <picture>
+                <source type="image/webp" srcset="assets/img/school/moto.webp" />
+                <img
+                  src="assets/img/school/moto.png"
+                  alt="Мотоцикл"
+                  class="school__card-img"
+                  loading="lazy"
+                  width="315"
+                  height="315"
+                />
+              </picture>
+            </figure>
+          </li>
+
+          <li class="school__card school__card--stat">
+            <div class="school__card-content">
+              <p class="school__card-value">40 000+</p>
+              <p class="school__card-label">учеников</p>
+            </div>
+          </li>
+
+          <li class="school__card school__card--image school__card--wide">
+            <figure class="school__card-figure">
+              <picture>
+                <source type="image/webp" srcset="assets/img/school/cars.webp" />
+                <img
+                  src="assets/img/school/cars.png"
+                  alt="Автомобили автошколы"
+                  class="school__card-img"
+                  loading="lazy"
+                  width="650"
+                  height="315"
+                />
+              </picture>
+            </figure>
+          </li>
+
+          <li class="school__card school__card--stat">
+            <div class="school__card-content">
+              <p class="school__card-value">20+</p>
+              <p class="school__card-label">лет на рынке</p>
+            </div>
+          </li>
+
+          <li class="school__card school__card--image">
+            <figure class="school__card-figure">
+              <picture>
+                <source type="image/webp" srcset="assets/img/school/track.webp" />
+                <img
+                  src="assets/img/school/track.png"
+                  alt="Грузовик"
+                  class="school__card-img"
+                  loading="lazy"
+                  width="315"
+                  height="315"
+                />
+              </picture>
+            </figure>
+          </li>
+
+          <li class="school__card school__card--stat">
+            <div class="school__card-content">
+              <p class="school__card-value">15+</p>
+              <p class="school__card-label">филиалов</p>
+            </div>
+          </li>
+
+          <li class="school__card school__card--stat">
+            <div class="school__card-content">
+              <p class="school__card-value">50+</p>
+              <p class="school__card-label">автомобилей</p>
+            </div>
+          </li>
+        </ul>
         <div class="social-banner">
           <h5 class="social-banner__title">Не хочешь говорить по телефону? Напиши онлайн!</h5>
           <div class="social-banner__buttons">
-            <a href="#" class="btn btn--telegram">
-              <span class="btn__icon" aria-hidden="true"></span>
+            <a href="#" class="social-btn social-btn--telegram">
+              <span class="social-btn__icon" aria-hidden="true"></span>
               Связаться в TG
             </a>
-            <a href="#" class="btn btn--whatsapp">
-              <span class="btn__icon" aria-hidden="true"></span>
+            <a href="#" class="social-btn social-btn--whatsapp">
+              <span class="social-btn__icon" aria-hidden="true"></span>
               Связаться в WA
             </a>
-            <a href="#" class="btn btn--vk">
-              <span class="btn__icon" aria-hidden="true"></span>
+            <a href="#" class="social-btn social-btn--vk">
+              <span class="social-btn__icon" aria-hidden="true"></span>
               Связаться в VK
             </a>
           </div>
         </div>
       </section>
+      <?php include __DIR__ . "/includes/advantages.php"; ?>
       <?php include __DIR__ . "/includes/categories_and_prices.php"; ?>
       <section class="page-section" aria-labelledby="categories-title">
         <?php include __DIR__ . "/includes/office-map.php"; ?>

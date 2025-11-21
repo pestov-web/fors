@@ -29,7 +29,7 @@ build/
 .cache/
 
 # PHP
-vendor/
+
 composer.lock
 
 # Временные файлы

@@ -10,10 +10,10 @@
           <p class="news-card__type">Акция</p>
           <time class="news-card__date" datetime="2025-04-05">5 апреля 2025</time>
         </div>
-        <h2 class="news-card__title">
-          <a class="news-card__link" href="#">Скидка 50 % на обучение квадроциклу</a>
-        </h2>
-        <p class="news-card__description">6 000 ₽ вместо 12 000 ₽ (количество мест ограничено)</p>
+        <h3 class="news-card__title">
+          <a class="news-card__link" href="#">Скидка 50 % на обучение квадроциклу</a>
+        </h3>
+        <p class="news-card__description">6 000 ₽ вместо 12 000 ₽ (количество мест ограничено)</p>
       </div>
 
       <figure class="news-card__media">
@@ -34,10 +34,10 @@
           <p class="news-card__type">Акция</p>
           <time class="news-card__date" datetime="2025-04-05">5 апреля 2025</time>
         </div>
-        <h2 class="news-card__title">
+        <h3 class="news-card__title">
           <a class="news-card__link" href="#">Ускоренные курсы</a>
-        </h2>
-        <p class="news-card__description">Получение прав за ~35 дней, с онлайн‑теорией и без сокращения практики</p>
+        </h3>
+        <p class="news-card__description">Получение прав за ~35 дней, с онлайн-теорией и без сокращения практики</p>
       </div>
 
       <figure class="news-card__media">
@@ -58,10 +58,10 @@
           <p class="news-card__type">Акция</p>
           <time class="news-card__date" datetime="2025-04-05">5 апреля 2025</time>
         </div>
-        <h2 class="news-card__title">
+        <h3 class="news-card__title">
           <a class="news-card__link" href="#">Категория «А» (мотоциклы)</a>
-        </h2>
-        <p class="news-card__description">От 4 990 ₽ (спец‑акция)</p>
+        </h3>
+        <p class="news-card__description">От 4 990 ₽ (спец-акция)</p>
       </div>
 
       <figure class="news-card__media">

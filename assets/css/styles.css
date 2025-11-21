@@ -5,7 +5,6 @@
 
 /* Main CSS orchestrator */
 @import "base.css";
-@import "layout.css";
 
 /* UI-Kit */
 @import "ui-kit/buttons.css";
@@ -18,8 +17,11 @@
 
 /* Components */
 @import "./components/header.css";
+@import "./components/primary-nav.css";
 @import "./components/mobile-menu.css";
 @import "./components/home-hero.css";
+@import "./components/school.css";
+@import "./components/advantages.css";
 @import "./components/steps.css";
 @import "./components/form-consult.css";
 @import "./components/categories.css";
@@ -30,6 +32,7 @@
 @import "./components/office-map.css";
 @import "./components/faq-accordion.css";
 @import "./components/about-highlights.css";
+@import "./components/footer.css";
 
 /* Страницы */
 @import "./pages/index.css";

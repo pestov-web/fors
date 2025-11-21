@@ -1,5 +1,4 @@
 .office-map {
-  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -24,14 +23,6 @@
 
 .office-map__content[hidden] {
   display: none;
-}
-
-.office-map__title {
-  color: var(--black, rgba(26, 26, 26, 1));
-  font-size: 3rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 0;
 }
 
 .office-map__benefits {

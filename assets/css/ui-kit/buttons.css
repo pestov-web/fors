@@ -146,7 +146,192 @@
   display: none;
 }
 
-/* Social buttons (Telegram, WhatsApp, VK)
+/* Social buttons (Telegram, WhatsApp, VK) - standalone
+   -------------------------------------------------------------------------- */
+.social-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: var(--radius-action);
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 1.56rem;
+  line-height: 1.88rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.social-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.social-btn__icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  flex-shrink: 0;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.social-btn--telegram {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 128, 183, 1) 4%,
+    rgba(0, 131, 186, 1) 44%,
+    rgba(0, 139, 194, 1) 70%,
+    rgba(0, 154, 209, 1) 92%,
+    rgba(0, 161, 216, 1) 99%
+  );
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(34, 158, 217, 0.25);
+}
+
+.social-btn--telegram::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 161, 216, 1) 1%,
+    rgba(0, 154, 209, 1) 8%,
+    rgba(0, 139, 194, 1) 30%,
+    rgba(0, 131, 186, 1) 56%,
+    rgba(0, 128, 183, 1) 96%
+  );
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.social-btn--telegram:hover::before,
+.social-btn--telegram:focus-visible::before {
+  opacity: 1;
+}
+
+.social-btn--telegram:hover,
+.social-btn--telegram:focus-visible {
+  box-shadow: 0 6px 18px rgba(34, 158, 217, 0.35);
+  transform: translateY(-2px);
+}
+
+.social-btn--telegram .social-btn__icon {
+  mask-image: url(../../icons/social/tg.svg);
+}
+
+.social-btn--whatsapp {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 186, 56, 1) 4%,
+    rgba(0, 188, 59, 1) 38%,
+    rgba(0, 195, 67, 1) 61%,
+    rgba(0, 207, 82, 1) 80%,
+    rgba(0, 225, 103, 1) 98%,
+    rgba(0, 226, 105, 1) 99%
+  );
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.social-btn--whatsapp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 226, 105, 1) 1%,
+    rgba(0, 225, 103, 1) 2%,
+    rgba(0, 207, 82, 1) 20%,
+    rgba(0, 195, 67, 1) 39%,
+    rgba(0, 188, 59, 1) 62%,
+    rgba(0, 186, 56, 1) 96%
+  );
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.social-btn--whatsapp:hover::before,
+.social-btn--whatsapp:focus-visible::before {
+  opacity: 1;
+}
+
+.social-btn--whatsapp:hover,
+.social-btn--whatsapp:focus-visible {
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+  transform: translateY(-2px);
+}
+
+.social-btn--whatsapp .social-btn__icon {
+  mask-image: url(../../icons/social/whatsapp.svg);
+}
+
+.social-btn--vk {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 125, 250, 1) 4%,
+    rgba(0, 128, 251, 1) 41%,
+    rgba(0, 139, 252, 1) 74%,
+    rgba(0, 153, 255, 1) 99%
+  );
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 119, 255, 0.25);
+}
+
+.social-btn--vk::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 153, 255, 1) 1%,
+    rgba(0, 139, 252, 1) 26%,
+    rgba(0, 128, 251, 1) 59%,
+    rgba(0, 125, 250, 1) 96%
+  );
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.social-btn--vk:hover::before,
+.social-btn--vk:focus-visible::before {
+  opacity: 1;
+}
+
+.social-btn--vk:hover,
+.social-btn--vk:focus-visible {
+  box-shadow: 0 6px 18px rgba(0, 119, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.social-btn--vk .social-btn__icon {
+  mask-image: url(../../icons/social/vk.svg);
+}
+
+.social-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Old social buttons (deprecated, use .social-btn instead)
    -------------------------------------------------------------------------- */
 .btn--telegram,
 .btn--whatsapp,
@@ -155,11 +340,11 @@
   --btn-padding-x: 2rem;
   --btn-font-size: 1rem;
   position: relative;
+  overflow: visible;
   background-size: 200% 100%;
   background-position: 0% 0%;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .btn--telegram::before,
 .btn--telegram::after,
 .btn--whatsapp::before,
@@ -170,23 +355,26 @@
 }
 
 .btn--telegram {
-  background: var(
-    --tg,
-    linear-gradient(
-      90deg,
-      rgba(0, 128, 183, 1) 4%,
-      rgba(0, 131, 186, 1) 44%,
-      rgba(0, 139, 194, 1) 70%,
-      rgba(0, 154, 209, 1) 92%,
-      rgba(0, 161, 216, 1) 99%
-    )
+  background: linear-gradient(
+    90deg,
+    rgba(0, 128, 183, 1) 4%,
+    rgba(0, 131, 186, 1) 44%,
+    rgba(0, 139, 194, 1) 70%,
+    rgba(0, 154, 209, 1) 92%,
+    rgba(0, 161, 216, 1) 99%
   );
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(34, 158, 217, 0.25);
+  transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn--telegram:hover,
-.btn--telegram:focus-visible {
+.btn--telegram::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
     90deg,
     rgba(0, 161, 216, 1) 1%,
@@ -195,6 +383,18 @@
     rgba(0, 131, 186, 1) 56%,
     rgba(0, 128, 183, 1) 96%
   );
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.btn--telegram:hover::before,
+.btn--telegram:focus-visible::before {
+  opacity: 1;
+}
+
+.btn--telegram:hover,
+.btn--telegram:focus-visible {
   box-shadow: 0 6px 18px rgba(34, 158, 217, 0.35);
   transform: translateY(-2px);
 }
@@ -345,7 +545,3 @@
 .btn-group--end {
   justify-content: flex-end;
 }
-
-/* Legacy support - old button classes with direct styles
-   -------------------------------------------------------------------------- */
-/* Note: Replace these with .btn--primary or .btn--secondary in HTML */

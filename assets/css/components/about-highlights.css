@@ -8,7 +8,6 @@
 }
 
 .about-highlights__title {
-  margin: 0;
   font-size: clamp(2rem, 1.7rem + 1vw, 2.75rem);
   font-weight: 300;
   line-height: 1.2;
@@ -37,6 +36,11 @@
   box-shadow: var(--shadow-elevated);
   color: var(--color-text);
   overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-highlights__card:hover {
+  transform: translateY(-0.25rem);
 }
 
 .about-highlights__card--accent {

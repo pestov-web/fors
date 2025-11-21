@@ -17,6 +17,8 @@
   --color-surface-elevated: #ffffff;
   --color-border: rgba(26, 26, 26, 0.08);
   --color-text-muted: rgba(26, 26, 26, 0.82);
+  --color-text-gray: #999999;
+  --color-text-primary: rgba(26, 26, 26, 1);
   --color-text-secondary: rgba(26, 26, 26, 0.72);
   --color-text-subtle: rgba(26, 26, 26, 0.6);
   --color-text-faint: rgba(26, 26, 26, 0.45);
@@ -60,7 +62,8 @@
 
   /* box shadows */
 
-  --shadow-md: 6px 6px 20px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 6px 6px 10px 3px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 3px 3px 3px 3px rgba(0, 0, 0, 0.075);
 }
 
 * {

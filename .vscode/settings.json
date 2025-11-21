@@ -25,5 +25,6 @@
   "files.trimTrailingWhitespace": true,
   "files.associations": {
     "*.php": "php"
-  }
+  },
+  "cSpell.words": ["Splide"]
 }

@@ -12,6 +12,9 @@
 @import "ui-kit/price-card.css";
 @import "ui-kit/fast-banner.css";
 @import "ui-kit/social-banner.css";
+@import "ui-kit/reviews-card.css";
+@import "ui-kit/profit-banner.css";
+@import "ui-kit/remote-banner.css";
 
 /* Components */
 @import "./components/header.css";
@@ -26,8 +29,10 @@
 @import "./components/news-and-discount.css";
 @import "./components/office-map.css";
 @import "./components/faq-accordion.css";
+@import "./components/about-highlights.css";
 
 /* Страницы */
+@import "./pages/index.css";
 @import "./pages/fast-courses.css";
 @import "./pages/about.css";
 @import "./pages/faq.css";
@@ -41,3 +46,6 @@
 @import "./pages/search.css";
 @import "./pages/autodrome.css";
 @import "./pages/error.css";
+
+/* vendor styles */
+@import "./vendor/splide.min.css";

@@ -22,7 +22,9 @@
     <li class="steps__item">
       <p class="steps__number" aria-hidden="true">04</p>
       <h3 class="steps__title">Пройти теорию</h3>
-      <p class="steps__description">Вы сами выбираете комфортный способ её прохождения. Учитесь в уютном классе или онлайн.</p>
+      <p class="steps__description">
+        Вы сами выбираете комфортный способ её прохождения. Учитесь в уютном классе или онлайн.
+      </p>
     </li>
     <li class="steps__item">
       <p class="steps__number" aria-hidden="true">05</p>

@@ -52,7 +52,9 @@
 
     initSiteMenu();
     initPriceTabs();
-    initCategorySliders();
+    initDistrictTabs();
+    initRouteButtons();
+    initSplideSliders();
   });
 
   function initSiteMenu() {
@@ -302,142 +304,120 @@
     });
   }
 
-  function initCategorySliders() {
-    const sliders = document.querySelectorAll('.js-categories-slider');
-    sliders.forEach(setupSlider);
-  }
+  function initDistrictTabs() {
+    const groups = document.querySelectorAll('.js-district-tabs');
+    groups.forEach((group) => {
+      const triggers = Array.from(group.querySelectorAll('[data-district-tab]'));
+      const panels = Array.from(group.querySelectorAll('.js-district-panel'));
+      const mapFrame = group.querySelector('.js-district-map');
+      if (triggers.length === 0 || panels.length === 0) return;
 
-  function setupSlider(slider) {
-    const viewport = slider.querySelector('.categories__viewport');
-    const track = slider.querySelector('.categories__list');
-    const items = Array.from(track?.children || []);
-    if (!viewport || !track || items.length === 0) return;
+      const panelMap = new Map();
+      panels.forEach((panel) => {
+        if (panel.id) {
+          panelMap.set(panel.id, panel);
+        }
+      });
 
-    const prevBtn = slider.querySelector('[data-role="prev"]');
-    const nextBtn = slider.querySelector('[data-role="next"]');
-    const currentEl = slider.querySelector('[data-role="current"]');
-    const totalEl = slider.querySelector('[data-role="total"]');
-    const progressLine = slider.querySelector('.categories__progress-line');
-    const statusEl = slider.querySelector('.categories__status');
+      let activeId =
+        triggers.find((btn) => btn.getAttribute('aria-selected') === 'true')?.dataset.districtTab ||
+        panels[0]?.id ||
+        triggers[0]?.dataset.districtTab;
 
-    let pageIndex = 0;
-    let perView = getPerView();
-    let totalPages = Math.max(1, Math.ceil(items.length / perView));
+      function setActive(nextId, { focus = false } = {}) {
+        if (!nextId) return;
+        const trigger = triggers.find((btn) => btn.dataset.districtTab === nextId);
+        const panel = panelMap.get(nextId) || panels.find((node) => node.id === nextId);
+        if (!trigger || !panel) return;
 
-    refreshMetrics({ animate: false });
+        triggers.forEach((btn) => {
+          const isCurrent = btn === trigger;
+          btn.classList.toggle('district-tabs__button_active', isCurrent);
+          btn.setAttribute('aria-selected', String(isCurrent));
+          btn.setAttribute('tabindex', isCurrent ? '0' : '-1');
+        });
 
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => goTo(pageIndex - 1));
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => goTo(pageIndex + 1));
-    }
+        panels.forEach((node) => {
+          const isCurrent = node === panel;
+          if (isCurrent) {
+            node.removeAttribute('hidden');
+            node.setAttribute('tabindex', '0');
+          } else {
+            if (!node.hasAttribute('hidden')) {
+              node.setAttribute('hidden', '');
+            }
+            node.removeAttribute('tabindex');
+          }
+        });
 
-    let pointerActive = false;
-    let pointerStartX = 0;
+        // Обновление карты
+        if (mapFrame) {
+          const mapKey = 'map-' + nextId.replace('district-', '');
+          const mapSrc = mapFrame.getAttribute('data-' + mapKey);
+          if (mapSrc) {
+            mapFrame.src = mapSrc;
+          }
+        }
 
-    viewport.addEventListener('pointerdown', (event) => {
-      pointerActive = true;
-      pointerStartX = event.clientX;
-      viewport.setPointerCapture?.(event.pointerId);
-    });
-
-    viewport.addEventListener('pointerup', (event) => {
-      if (!pointerActive) return;
-      viewport.releasePointerCapture?.(event.pointerId);
-      const delta = event.clientX - pointerStartX;
-      pointerActive = false;
-      const threshold = 40;
-      if (Math.abs(delta) > threshold) {
-        if (delta < 0) {
-          goTo(pageIndex + 1);
-        } else {
-          goTo(pageIndex - 1);
+        activeId = nextId;
+        if (focus) {
+          trigger.focus({ preventScroll: true });
         }
       }
-    });
 
-    viewport.addEventListener('pointercancel', () => {
-      pointerActive = false;
-    });
+      setActive(activeId);
 
-    viewport.addEventListener('pointerleave', () => {
-      pointerActive = false;
-    });
+      function handleKeydown(event, current) {
+        const { key } = event;
+        if (
+          !['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Enter', ' ', 'Spacebar'].includes(key)
+        ) {
+          return;
+        }
+        event.preventDefault();
+        if (key === 'Enter' || key === ' ' || key === 'Spacebar') {
+          setActive(current.dataset.districtTab);
+          return;
+        }
 
-    const resizeObserver = window.ResizeObserver ? new ResizeObserver(() => refreshMetrics({ animate: false })) : null;
-    if (resizeObserver) resizeObserver.observe(viewport);
-    window.addEventListener('resize', () => refreshMetrics({ animate: false }));
+        let nextIndex;
+        const currentIndex = triggers.indexOf(current);
+        if (key === 'Home') {
+          nextIndex = 0;
+        } else if (key === 'End') {
+          nextIndex = triggers.length - 1;
+        } else if (key === 'ArrowRight' || key === 'ArrowDown') {
+          nextIndex = (currentIndex + 1) % triggers.length;
+        } else if (key === 'ArrowLeft' || key === 'ArrowUp') {
+          nextIndex = (currentIndex - 1 + triggers.length) % triggers.length;
+        }
 
-    function getPerView() {
-      const raw = parseFloat(getComputedStyle(slider).getPropertyValue('--categories-per-view'));
-      if (!Number.isNaN(raw) && raw > 0) return Math.round(raw);
-      return 1;
-    }
-
-    function getGap() {
-      const styles = getComputedStyle(track);
-      const gap = parseFloat(styles.columnGap || styles.gap || '0');
-      return Number.isNaN(gap) ? 0 : gap;
-    }
-
-    function computeOffset() {
-      const itemWidth = items[0]?.offsetWidth || viewport.clientWidth;
-      const gap = getGap();
-      const rawOffset = pageIndex * (itemWidth * perView + gap * perView);
-      const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
-      return Math.min(rawOffset, maxOffset);
-    }
-
-    function updateTransform(animate = true) {
-      const offset = computeOffset();
-      if (!animate) {
-        const previousTransition = track.style.transition;
-        track.style.transition = 'none';
-        track.style.transform = `translate3d(-${offset}px, 0, 0)`;
-        // force reflow then restore transition
-        requestAnimationFrame(() => {
-          track.offsetWidth; // eslint-disable-line no-unused-expressions
-          track.style.transition = previousTransition || '';
-        });
-      } else {
-        track.style.transform = `translate3d(-${offset}px, 0, 0)`;
-      }
-    }
-
-    function refreshMetrics({ animate = true } = {}) {
-      perView = getPerView();
-      totalPages = Math.max(1, Math.ceil(items.length / perView));
-      pageIndex = Math.min(pageIndex, totalPages - 1);
-      slider.classList.toggle('categories--single', totalPages <= 1);
-      updateTransform(animate);
-      updateUI();
-    }
-
-    function goTo(targetIndex) {
-      const clamped = Math.max(0, Math.min(targetIndex, totalPages - 1));
-      if (clamped === pageIndex) return;
-      pageIndex = clamped;
-      updateTransform(true);
-      updateUI();
-    }
-
-    function updateUI() {
-      if (prevBtn) prevBtn.disabled = pageIndex === 0;
-      if (nextBtn) nextBtn.disabled = pageIndex >= totalPages - 1;
-
-      if (currentEl) currentEl.textContent = String(pageIndex + 1);
-      if (totalEl) totalEl.textContent = String(totalPages);
-
-      if (progressLine) {
-        const percent = totalPages <= 1 ? 100 : ((pageIndex + 1) / totalPages) * 100;
-        progressLine.style.width = `${percent}%`;
+        const nextTrigger = triggers[nextIndex];
+        if (nextTrigger) {
+          setActive(nextTrigger.dataset.districtTab, { focus: true });
+        }
       }
 
-      if (statusEl) {
-        statusEl.textContent = `Показан слайд ${pageIndex + 1} из ${totalPages}`;
-      }
-    }
+      triggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => setActive(trigger.dataset.districtTab, { focus: true }));
+        trigger.addEventListener('keydown', (event) => handleKeydown(event, trigger));
+      });
+    });
+  }
+
+  function initRouteButtons() {
+    const buttons = document.querySelectorAll('.js-build-route');
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const coords = button.getAttribute('data-coords');
+        if (!coords) return;
+
+        // Формат: https://yandex.ru/maps/?rtext=~lat,lon&rtt=auto
+        // ~ означает "от моего местоположения"
+        const url = `https://yandex.ru/maps/?rtext=~${coords}&rtt=auto`;
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+    });
   }
 
   function updateThemeAwareAssets(isDark) {
@@ -452,6 +432,87 @@
       } else if (node instanceof HTMLSourceElement) {
         node.srcset = isDark ? darkSrc : lightSrc;
       }
+    });
+  }
+
+  function initSplideSliders() {
+    if (typeof Splide === 'undefined') {
+      console.warn('Splide library not loaded');
+      return;
+    }
+
+    // Инициализация слайдера категорий с адаптивными настройками
+    const categoriesSlider = document.querySelector('.categories__slider.splide');
+    if (categoriesSlider) {
+      const splide = new Splide(categoriesSlider, {
+        type: 'slide',
+        perPage: 3,
+        perMove: 1,
+        gap: '1.1rem',
+        padding: { left: '0.3rem', right: '0.5rem' },
+        pagination: false,
+        arrows: false,
+        updateOnMove: true,
+        breakpoints: {
+          1199: {
+            perPage: 2,
+            gap: '1.25rem',
+            padding: { left: '0.5rem', right: '0.5rem' },
+          },
+          599: {
+            perPage: 1,
+            gap: '1rem',
+            padding: { left: '0.1rem', right: '0.1rem' },
+          },
+        },
+      }).mount();
+
+      // Кастомная пагинация
+      const progressLine = document.querySelector('.categories__progress-line');
+      const currentPage = document.querySelector('.categories__page-current');
+      const totalPages = document.querySelector('.categories__page-total');
+      const prevBtn = document.querySelector('.categories__nav-btn--prev');
+      const nextBtn = document.querySelector('.categories__nav-btn--next');
+
+      if (progressLine && currentPage && totalPages && prevBtn && nextBtn) {
+        const updatePagination = () => {
+          const index = splide.index;
+          const total = splide.length;
+          const perPage = splide.options.perPage;
+          const pageCount = Math.ceil(total / perPage);
+          const currentPageNum = Math.floor(index / perPage) + 1;
+
+          currentPage.textContent = currentPageNum;
+          totalPages.textContent = pageCount;
+
+          const progress = ((currentPageNum - 1) / (pageCount - 1)) * 100;
+          progressLine.style.width = `${progress}%`;
+
+          prevBtn.disabled = currentPageNum === 1;
+          nextBtn.disabled = currentPageNum === pageCount;
+        };
+
+        splide.on('moved', updatePagination);
+        splide.on('mounted', updatePagination);
+
+        prevBtn.addEventListener('click', () => {
+          const perPage = splide.options.perPage;
+          const newIndex = Math.max(0, splide.index - perPage);
+          splide.go(newIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+          const perPage = splide.options.perPage;
+          const newIndex = Math.min(splide.length - 1, splide.index + perPage);
+          splide.go(newIndex);
+        });
+      }
+    }
+
+    // Инициализация остальных слайдеров с дефолтными настройками
+    const otherSliders = document.querySelectorAll('.splide:not(.categories__slider)');
+    otherSliders.forEach((slider) => {
+      new Splide(slider).mount();
     });
   }
 })();

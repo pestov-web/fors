@@ -1,0 +1,42 @@
+.reviews-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 19.69rem;
+  height: 23.25rem;
+  box-sizing: border-box;
+  padding: 1.3rem;
+  border: 0.06rem solid rgba(242, 213, 2, 1);
+  border-radius: var(--radius-pill);
+  background: rgba(60, 60, 60, 1);
+  gap: 1rem;
+}
+
+.reviews-card:nth-child(even) {
+  background: var(--yellow);
+  .reviews-card__author,
+  .reviews-card__review-text {
+    color: var(--black, rgba(0, 0, 0, 1));
+  }
+}
+
+.reviews-card__author {
+  color: var(--white, rgba(255, 255, 255, 1));
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.reviews-card__date {
+  color: var(--gray, rgba(153, 153, 153, 1));
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.reviews-card__review-text {
+  color: var(--white, rgba(255, 255, 255, 1));
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+  margin: 0;
+}

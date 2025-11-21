@@ -22,6 +22,10 @@
   gap: 2rem;
 }
 
+.office-map__content[hidden] {
+  display: none;
+}
+
 .office-map__title {
   color: var(--black, rgba(26, 26, 26, 1));
   font-size: 3rem;

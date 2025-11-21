@@ -1,0 +1,110 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.about-us__title {
+  color: var(--black, rgba(26, 26, 26, 1));
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.about-us__head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.about-us__buttons {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  height: 2.81rem;
+  border: 0.06rem solid var(--gray, rgba(153, 153, 153, 1));
+  border-radius: var(--radius-action);
+  background: var(--white, rgba(255, 255, 255, 1));
+  margin-bottom: 1rem;
+}
+
+.about-us__btn {
+  box-sizing: border-box;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-action);
+  background: transparent;
+  color: var(--color-text-gray);
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.about-us__btn_active {
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+}
+
+.about-us__list {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.about-us__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--color-text-gray);
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.about-us__link:hover,
+.about-us__link:focus-visible {
+  text-decoration: underline;
+}
+
+.about-us__link-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  color: var(--yellow);
+  background-color: currentColor;
+  mask-image: url(../../icons/right_arrow.svg);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url(../../icons/right_arrow.svg);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  transition: transform 0.3s ease;
+}
+
+.about-us__link:hover .about-us__link-icon {
+  transform: translateX(0.25rem);
+}
+
+.remote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.remote__title {
+  color: var(--black, rgba(26, 26, 26, 1));
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+}

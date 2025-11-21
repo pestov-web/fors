@@ -2,19 +2,21 @@
 // Главная страница: шапка под жёлтый фон героя
 ?>
 <header class="header" role="banner">
-  <div class="header__container">
+  <div class="header__container header__container--index">
     <!-- ЛОГО -->
     <!-- bx:include:site-logo -->
-    <a class="site-header__logo" href="/" aria-label="Автошкола Форсаж — на главную">
-      <img class="site-header__logo-image js-site-logo"
-           src="assets/icons/logo-forsazh.svg"
-           data-logo-light="assets/icons/logo-forsazh.svg"
-           data-logo-dark="assets/icons/logo-dark.svg"
-           alt="Форсаж — автошкола"
-           width="120"
-           height="28"
-           loading="eager"
-           decoding="async">
+    <a class="header__logo" href="/" aria-label="Автошкола Форсаж — на главную">
+      <img
+        class="header__logo js-site-logo"
+        src="assets/icons/logo-forsazh.svg"
+        data-logo-light="assets/icons/logo-forsazh.svg"
+        data-logo-dark="assets/icons/logo-dark.svg"
+        alt="Форсаж — автошкола"
+        width="120"
+        height="28"
+        loading="eager"
+        decoding="async"
+      />
     </a>
 
     <!-- ОСНОВНАЯ НАВИГАЦИЯ -->
@@ -39,12 +41,11 @@
     <!-- БЛОК ДЕЙСТВИЙ -->
     <div class="site-header__actions">
       <!-- ПОИСК -->
-      <button class="action-btn action-btn--search"
-              type="button"
-              aria-label="Открыть поиск"
-              data-action="open-search">
+      <button class="action-btn action-btn--search" type="button" aria-label="Открыть поиск" data-action="open-search">
         <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" focusable="false">
-          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16a6.471 6.471 0 004.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          <path
+            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16a6.471 6.471 0 004.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          />
         </svg>
       </button>
       <!-- bx:search-title -->
@@ -56,24 +57,28 @@
       </a>
 
       <!-- ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ -->
-      <button class="action-btn action-btn--theme"
-              type="button"
-              role="switch"
-              aria-checked="false"
-              aria-label="Переключить тему"
-              data-action="toggle-theme">
+      <button
+        class="action-btn action-btn--theme"
+        type="button"
+        role="switch"
+        aria-checked="false"
+        aria-label="Переключить тему"
+        data-action="toggle-theme"
+      >
         <span class="u-visually-hidden">Тёмная тема</span>
-        <img src="assets/icons/color_theme.svg" alt="" width="64" height="34" loading="eager" decoding="async">
+        <img src="assets/icons/color_theme.svg" alt="" width="64" height="34" loading="eager" decoding="async" />
       </button>
 
       <!-- ГАМБУРГЕР (моб. меню) -->
-      <button class="burger"
-              type="button"
-              aria-label="Открыть меню"
-              aria-controls="site-menu"
-              aria-expanded="false"
-              data-action="toggle-menu">
-        <img src="assets/icons/burger.svg" alt="" width="26" height="26" loading="eager" decoding="async">
+      <button
+        class="burger"
+        type="button"
+        aria-label="Открыть меню"
+        aria-controls="site-menu"
+        aria-expanded="false"
+        data-action="toggle-menu"
+      >
+        <img src="assets/icons/burger.svg" alt="" width="26" height="26" loading="eager" decoding="async" />
       </button>
     </div>
   </div>
@@ -82,10 +87,7 @@
     <div class="site-menu__panel" role="dialog" aria-modal="true" aria-labelledby="site-menu-title" tabindex="-1">
       <div class="site-menu__header">
         <p id="site-menu-title" class="site-menu__title">Навигация</p>
-        <button class="site-menu__close"
-                type="button"
-                aria-label="Закрыть меню"
-                data-action="close-menu"></button>
+        <button class="site-menu__close" type="button" aria-label="Закрыть меню" data-action="close-menu"></button>
       </div>
       <nav class="site-menu__nav" aria-label="Быстрые ссылки">
         <ul class="site-menu__list" role="list">

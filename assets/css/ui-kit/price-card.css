@@ -6,7 +6,7 @@
   width: 26.69rem;
   height: 37.81rem;
   border-radius: var(--radius-pill);
-  box-shadow: 6px 6px 20px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-sm);
   background: var(--white, rgba(255, 255, 255, 1));
   padding: 1.9rem;
 }
